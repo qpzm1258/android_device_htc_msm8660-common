@@ -41,7 +41,8 @@ PRODUCT_PACKAGES += \
     audio_policy.msm8660 \
     audio_policy.conf \
     audio.primary.msm8660 \
-    libaudioutils
+    libaudioutils \
+    audio.usb.default
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -52,17 +53,11 @@ PRODUCT_PACKAGES += \
     copybit.msm8660 \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
-    lights.msm8660 \
-    libgenlock \
-    libmemalloc \
-    liboverlay \
-    libqdutils \
-    libtilerenderer
+    lights.msm8660
 
 # OMX
 PRODUCT_PACKAGES += \
     libdivxdrmdecrypt \
-    libI420colorconvert \
     libmm-omxcore \
     libOmxCore \
     libOmxVdec \
