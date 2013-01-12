@@ -24,9 +24,6 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
-# Vendor
-BOARD_VENDOR := htc
-
 # Architecture
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
