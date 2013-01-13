@@ -55,6 +55,7 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
     libdivxdrmdecrypt \
     libmm-omxcore \
     libOmxCore \
@@ -62,7 +63,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxAacEnc \
     libOmxAmrEnc \
-    libstagefrighthw
+    libstagefrighthw \
+    libOmxQcelp13Enc \
+    libOmxEvrcEnc \
+    libOmxAmrEnc
 
 # HDMI
 PRODUCT_PACKAGES += \
