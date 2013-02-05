@@ -69,6 +69,10 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxAmrEnc
 
+# WiFi
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
 # HDMI
 PRODUCT_PACKAGES += \
     hdmid
