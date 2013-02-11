@@ -35,6 +35,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
+ARCH_ARM_HAVE_ARMV7A := true
 
 # Scorpion optimizations
 TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
