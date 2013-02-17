@@ -44,10 +44,6 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio_policy.conf
 
-# GPS
-PRODUCT_COPY_FILES += \
-    device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf
-
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8660 \
@@ -68,6 +64,13 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
     libOmxAmrEnc
+
+# FM Radio
+PRODUCT_PACKAGES += \
+    FmRadioReceiver
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
 
 # WiFi
 PRODUCT_PACKAGES += \
