@@ -65,7 +65,8 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
-    libOmxAmrEnc
+    libOmxAmrEnc \
+    libdashplayer
 
 # FM Radio
 #PRODUCT_PACKAGES += \
