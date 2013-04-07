@@ -37,7 +37,8 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_ARMV7A := true
-TARGET_ARCH_VARIANT_CPU := cortex-a9
+TARGET_ARCH_VARIANT_CPU := cortex-a8
+ARCH_ARM_HAVE_NEON := true
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
@@ -99,3 +100,5 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Webkit
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
+
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a8) $(call cc-option,-mcpu=cortex-a8)
