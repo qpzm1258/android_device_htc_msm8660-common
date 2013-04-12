@@ -43,14 +43,18 @@ PRODUCT_PACKAGES += \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
     libaudioutils \
-    audio.usb.default \
     audio_policy.conf
 
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8660 \
     gralloc.msm8660 \
-    hwcomposer.msm8660
+    hwcomposer.msm8660 \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libqdutils \
+    libtilerenderer
 
 # OMX
 PRODUCT_PACKAGES += \

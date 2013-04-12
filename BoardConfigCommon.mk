@@ -90,7 +90,6 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK -DQCOM_ROTATOR_KERNEL_FORMATS
 USE_OPENGL_RENDERER := true
 TARGET_NO_HW_VSYNC := true
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_PMEM := true
 BOARD_EGL_CFG := device/htc/msm8660-common/configs/egl.cfg
 
 # Lights
@@ -99,3 +98,5 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Webkit
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
+
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
