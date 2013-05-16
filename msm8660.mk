@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
     libaudioutils \
+    audio.usb.default \
     audio_policy.conf
 
 # Graphics
@@ -70,6 +71,10 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
     libOmxAmrEnc 
+    
+# Power
+PRODUCT_PACKAGES += \
+    power.msm8660
 
 # FM Radio
 #PRODUCT_PACKAGES += \
