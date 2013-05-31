@@ -54,6 +54,7 @@ case "$target" in
 	 #echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
 	 #echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 	 #echo 4 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+	 echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
 	 chown system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
 	 chown system /sys/devices/system/cpu/cpufreq/interactive/boost
 	 chown system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
