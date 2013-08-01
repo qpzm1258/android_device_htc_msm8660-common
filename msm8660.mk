@@ -44,6 +44,7 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8660 \
     libaudioutils \
     audio.usb.default \
+    libaudio-resampler \
     audio_policy.conf
 
 # Graphics
