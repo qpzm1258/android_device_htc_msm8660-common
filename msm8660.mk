@@ -70,6 +70,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
+    libv8 \
     libOmxAmrEnc 
     
 # Power
@@ -142,4 +143,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera wrapper
 PRODUCT_PACKAGES += \
-    camera.default
+    camera.msm8660
