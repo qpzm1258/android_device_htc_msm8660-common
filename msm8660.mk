@@ -144,4 +144,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera wrapper
 PRODUCT_PACKAGES += \
-    camera.msm8660
+    camera.msm8660 \
+    libsurfaceflinger_client
