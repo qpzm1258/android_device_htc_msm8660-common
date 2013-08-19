@@ -44,6 +44,7 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8660 \
     libaudioutils \
     audio.usb.default \
+    libaudio-resampler \
     audio_policy.conf
 
 # Graphics
@@ -70,27 +71,15 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
-    libv8 \
     libOmxAmrEnc 
     
 # Power
 PRODUCT_PACKAGES += \
     power.msm8660
 
-# FM Radio
-#PRODUCT_PACKAGES += \
-#    FmRadioReceiver
-
-#PRODUCT_COPY_FILES += \
-#    frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
-
 # WiFi
 PRODUCT_PACKAGES += \
     libnetcmdiface
-
-# HDMI
-PRODUCT_PACKAGES += \
-    hdmid
 
 # Torch
 PRODUCT_PACKAGES += \
