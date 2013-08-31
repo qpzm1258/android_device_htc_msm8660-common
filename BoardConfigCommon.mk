@@ -129,4 +129,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
+# Hardware tunables
+BOARD_HARDWARE_CLASS := device/htc/msm8660-common/cmhw/
+
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
