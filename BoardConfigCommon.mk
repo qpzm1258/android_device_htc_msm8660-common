@@ -22,7 +22,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/htc/msm8660-common/include
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/htc/msm8660
+TARGET_KERNEL_SOURCE := kernel/htc/shooteru
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-4.7.3_cortex-a8/bin/arm-eabi-
 
 # Platform
