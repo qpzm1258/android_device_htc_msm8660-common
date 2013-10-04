@@ -66,12 +66,20 @@ case "$target" in
 	 chown system /sys/devices/system/cpu/cpufreq/interactive/target_loads
 	 chown system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
 	 chown system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-	 chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 	 chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 	 chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 	 chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
 	 chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/down_differential
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/input_boost
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 	 chown system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate_min
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/sync_freq
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+	 chown system /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
 	 chown root.system /sys/devices/system/cpu/mfreq
 	 chmod 220 /sys/devices/system/cpu/mfreq
 	 chown root.system /sys/devices/system/cpu/cpu1/online
