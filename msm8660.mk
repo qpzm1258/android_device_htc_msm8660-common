@@ -47,6 +47,11 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     audio_policy.conf
 
+# Camera wrapper
+PRODUCT_PACKAGES += \
+    camera.msm8660 \
+    libsurfaceflinger_client
+
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8660 \
@@ -131,7 +136,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.bq.gpu_to_cpu_unsupported=1
 
-# Camera wrapper
-PRODUCT_PACKAGES += \
-    camera.msm8660 \
-    libsurfaceflinger_client
+# Set default number of background apps to 15
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.mem.max_hidden_apps=15
