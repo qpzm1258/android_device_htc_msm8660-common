@@ -97,10 +97,10 @@ case "$emmc_boot"
     ;;
 esac
 
-# Post-setup services
-#case "$target" in
-#    "msm8660")
-#        start mpdecision
-#        start thermald
-#    ;;
-#esac
+# Change adj level and min_free_kbytes setting for lowmemory killer to kick in
+case "$target" in
+     "msm8660")
+        echo 0,1,2,4,9,12 > /sys/module/lowmemorykiller/parameters/adj
+        echo 5120 > /proc/sys/vm/min_free_kbytes
+      ;;
+esac
