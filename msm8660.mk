@@ -45,8 +45,12 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8660 \
     libaudioutils \
     audio.usb.default \
-    libaudio-resampler \
-    audio_policy.conf
+    libaudio-resampler
+
+# audio policy
+PRODUCT_COPY_FILES += \
+    device/htc/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+
 
 # Camera wrapper
 PRODUCT_PACKAGES += \
