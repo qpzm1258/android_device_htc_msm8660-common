@@ -116,7 +116,7 @@ BOARD_HARDWARE_CLASS := device/htc/msm8660-common/cmhw/
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/msm8660-common/sepolicy
+    device/htc/msm8660-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     app.te \
