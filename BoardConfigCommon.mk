@@ -109,14 +109,13 @@ TARGET_BOOTANIMATION_PRELOAD := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Webkit
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
 USE_SET_METADATA := false
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/msm8660-common/cmhw/
 
+#F2FS
+TARGET_USERIMAGES_USE_F2FS := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
