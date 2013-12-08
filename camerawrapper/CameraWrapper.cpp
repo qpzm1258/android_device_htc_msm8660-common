@@ -95,6 +95,7 @@ const static char * previewSizesStr[] = {"1920x1088,1280x720,960x544,800x480,720
 
 static char * camera_fixup_getparams(int id, const char * settings)
 {
+    bool isVideo = false;
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -113,6 +114,7 @@ static char * camera_fixup_getparams(int id, const char * settings)
         params.set(android::CameraParameters::KEY_TOUCH_AF_AEC, "touch-on");
         params.set(android::CameraParameters::KEY_HORIZONTAL_VIEW_ANGLE, "54.4");
         params.set(android::CameraParameters::KEY_VERTICAL_VIEW_ANGLE, "42.2");
+        params.set("cam-mode", isVideo ? "1" : "0");
 
     }
 
