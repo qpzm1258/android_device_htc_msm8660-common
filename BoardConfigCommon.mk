@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-USE_CAMERA_STUB := true
+#USE_CAMERA_STUB := true
 
 BOARD_VENDOR := htc
 
@@ -43,6 +43,7 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
 # FB legacy
 BOARD_EGL_NEEDS_LEGACY_FB := true
+#BOARD_EGL_NEEDS_FNW := true
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -81,8 +82,8 @@ TARGET_ENABLE_AV_ENHANCEMENTS := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 # QCOM BSP (Board Support Package)
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+#TARGET_USES_QCOM_BSP := true
+#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 
 # Filesystem
 BOARD_VOLD_MAX_PARTITIONS := 36
@@ -101,7 +102,9 @@ TARGET_NO_HW_VSYNC := true
 TARGET_USES_POST_PROCESSING := true
 TARGET_USES_C2D_COMPOSITION := true
 BOARD_EGL_CFG := device/htc/msm8660-common/configs/egl.cfg
-BOARD_NEEDS_MEMORYHEAPPMEM := true
+
+#OpenGL
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -109,7 +112,8 @@ TARGET_BOOTANIMATION_PRELOAD := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-USE_SET_METADATA := false
+#Legacy recovery
+SKIP_SET_METADATA := true
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/msm8660-common/cmhw/
