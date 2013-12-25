@@ -116,6 +116,9 @@ static char * camera_fixup_getparams(int id, const char * settings)
         params.set(android::CameraParameters::KEY_VERTICAL_VIEW_ANGLE, "42.2");
         params.set("cam-mode", isVideo ? "1" : "0");
 
+    if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
+         isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
+      }
     }
 
     android::String8 strParams = params.flatten();
