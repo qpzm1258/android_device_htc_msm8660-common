@@ -104,21 +104,28 @@ static char * camera_fixup_getparams(int id, const char * settings)
     {
         params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, previewSizesStr[id]);
         params.set(android::CameraParameters::KEY_PREVIEW_FRAME_RATE, "30");
-	params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
-	params.set(android::CameraParameters::KEY_AUTO_EXPOSURE, "frame-average");
-	params.set(android::CameraParameters::KEY_SCENE_DETECT, "on");
-	params.set(android::CameraParameters::KEY_SKIN_TONE_ENHANCEMENT, "enable");
+        params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
+        params.set(android::CameraParameters::KEY_SCENE_DETECT, "on");
+        params.set(android::CameraParameters::KEY_SKIN_TONE_ENHANCEMENT, "enable");
         params.set(android::CameraParameters::KEY_FOCAL_LENGTH, "3.49");
         params.set(android::CameraParameters::KEY_FOCUS_DISTANCES, "1.000000,32.000000,32.000000");
         params.set(android::CameraParameters::KEY_SCENE_DETECT, "on");
-        params.set(android::CameraParameters::KEY_TOUCH_AF_AEC, "touch-on");
         params.set(android::CameraParameters::KEY_HORIZONTAL_VIEW_ANGLE, "54.4");
         params.set(android::CameraParameters::KEY_VERTICAL_VIEW_ANGLE, "42.2");
         params.set("cam-mode", isVideo ? "1" : "0");
+    }
 
-    if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
-         isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
-      }
+    // Some QCOM related framework changes expect max-saturation, max-contrast
+    // and max-sharpness or the Camera app will crash.
+    const char* value;
+    if((value = params.get("saturation-max"))) {
+        params.set("max-saturation", value);
+    }
+    if((value = params.get("contrast-max"))) {
+        params.set("max-contrast", value);
+    }
+    if((value = params.get("sharpness-max"))) {
+        params.set("max-sharpness", value);
     }
 
     android::String8 strParams = params.flatten();
