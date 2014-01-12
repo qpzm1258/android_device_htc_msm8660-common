@@ -91,11 +91,12 @@ static int check_vendor_module()
     return rv;
 }
 
-const static char * previewSizesStr[] = {"1920x1088,1280x720,960x544,800x480,720x480,640x480,640x368,480x320,320x240"};
+const static char * previewSizesStr[] = {"1280x720,960x544,720x480,640x480,640x384,640x368,576x432,480x320,384x288,352x288,320x240,240x160,176x144"};
 
 static char * camera_fixup_getparams(int id, const char * settings)
 {
     bool isVideo = false;
+    const char *sceneMode = "auto";
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -105,14 +106,15 @@ static char * camera_fixup_getparams(int id, const char * settings)
         params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, previewSizesStr[id]);
         params.set(android::CameraParameters::KEY_PREVIEW_FRAME_RATE, "30");
         params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
-        params.set(android::CameraParameters::KEY_SCENE_DETECT, "on");
         params.set(android::CameraParameters::KEY_SKIN_TONE_ENHANCEMENT, "enable");
         params.set(android::CameraParameters::KEY_FOCAL_LENGTH, "3.49");
         params.set(android::CameraParameters::KEY_FOCUS_DISTANCES, "1.000000,32.000000,32.000000");
         params.set(android::CameraParameters::KEY_SCENE_DETECT, "on");
         params.set(android::CameraParameters::KEY_HORIZONTAL_VIEW_ANGLE, "54.4");
         params.set(android::CameraParameters::KEY_VERTICAL_VIEW_ANGLE, "42.2");
-        params.set("cam-mode", isVideo ? "1" : "0");
+        params.set(android::CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,infinity,normal,macro");
+        params.set(android::CameraParameters::KEY_SUPPORTED_SELECTABLE_ZONE_AF, "auto,spot-metering,center-weighted,frame-average");
+        params.set(android::CameraParameters::KEY_SUPPORTED_TOUCH_AF_AEC, "touch-off");
     }
 
     // Some QCOM related framework changes expect max-saturation, max-contrast
@@ -127,6 +129,16 @@ static char * camera_fixup_getparams(int id, const char * settings)
     if((value = params.get("sharpness-max"))) {
         params.set("max-sharpness", value);
     }
+
+   if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
+        isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
+    }
+
+   if (params.get(android::CameraParameters::KEY_SCENE_MODE)) {
+        sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);
+    }
+
+     params.set("cam-mode", isVideo ? "1" : "0");
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
