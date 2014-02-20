@@ -138,8 +138,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=true \
     debug.hwui.render_dirty_regions=false \
-    debug.egl.recordable.rgba8888=1 \
-    dalvik.vm.dexopt-data-only=0
+    debug.egl.recordable.rgba8888=1
 
 # Set default number of background apps to 15
 PRODUCT_PROPERTY_OVERRIDES += \
