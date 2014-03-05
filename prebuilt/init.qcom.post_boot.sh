@@ -101,6 +101,7 @@ esac
 case "$target" in
      "msm8660")
         echo 0,1,2,4,9,12 > /sys/module/lowmemorykiller/parameters/adj
+        echo 1024,2048,2560,4096,6144,8192 > /sys/module/lowmemorykiller/parameters/minfree
         echo 5120 > /proc/sys/vm/min_free_kbytes
       ;;
 esac
