@@ -55,7 +55,6 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    copybit.msm8660 \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
     memtrack.msm8660 \
@@ -129,19 +128,8 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 # Common build properties
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
-    debug.enabletr=true \
-    debug.egl.hw=1 \
-    debug.mdpcomp.maxlayer=3 \
-    debug.hwc.dynThreshold=1.9 \
-    persist.hwc.mdcomp.enable=true \
-    debug.mdpcomp.logs=0 \
-    debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=131072 \
-    ro.zygote.disable_gl_preload=true \
-    debug.hwui.render_dirty_regions=false \
     debug.egl.recordable.rgba8888=1 \
-    dalvik.vm.dexopt-data-only=0
 
 # Set default number of background apps to 15
 PRODUCT_PROPERTY_OVERRIDES += \
