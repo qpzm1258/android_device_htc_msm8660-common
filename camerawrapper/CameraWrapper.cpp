@@ -38,10 +38,13 @@ static camera_module_t *gVendorModule = 0;
 
 static char **fixed_set_params = NULL;
 
-static int camera_device_open(const hw_module_t *module, const char *name,
-        hw_device_t **device);
+static int camera_device_open(const hw_module_t* module, const char* name,
+                hw_device_t** device);
+static int camera_device_close(hw_device_t* device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
+static int camera_send_command(struct camera_device * device, int32_t cmd,
+                int32_t arg1, int32_t arg2);
 
 static struct hw_module_methods_t camera_module_methods = {
     .open = camera_device_open
@@ -102,6 +105,8 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set("max-saturation", "10");
     params.set("max-contrast", "10");
     params.set("max-sharpness", "10");
+    params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
+    params.set("scene-detect", "on");
 
 #if !LOG_NDEBUG
     ALOGV("%s: original parameters:", __FUNCTION__);
@@ -119,8 +124,9 @@ static char *camera_fixup_getparams(int id, const char *settings)
     return ret;
 }
 
-static char *camera_fixup_setparams(int id, const char *settings)
+char * camera_fixup_setparams(struct camera_device * device, const char * settings)
 {
+    int id = CAMERA_ID(device);
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -133,6 +139,8 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     if (isVideo) {
         params.set(android::CameraParameters::KEY_ROTATION, "0");
+        params.set(android::CameraParameters::KEY_ANTIBANDING, "auto");
+        params.set("scene-detect", "on");
     }
 
 #if !LOG_NDEBUG
@@ -363,7 +371,7 @@ static int camera_set_parameters(struct camera_device *device,
         return -EINVAL;
 
     char *tmp = NULL;
-    tmp = camera_fixup_setparams(CAMERA_ID(device), params);
+    tmp = camera_fixup_setparams(device, params);
 
     int ret = VENDOR_CALL(device, set_parameters, tmp);
     return ret;
