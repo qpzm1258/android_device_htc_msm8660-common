@@ -129,7 +129,10 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
     ro.opengles.version=131072 \
+    debug.mdpcomp.maxlayer=3 \
     debug.egl.recordable.rgba8888=1 \
+    debug.sf.hw=1 \
+    debug.egl.hw=1
 
 # Set default number of background apps to 15
 PRODUCT_PROPERTY_OVERRIDES += \
