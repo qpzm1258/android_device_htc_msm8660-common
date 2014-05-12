@@ -23,7 +23,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/shooteru
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-4.7.3_cortex-a8
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.8
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8660
